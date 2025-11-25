@@ -1,64 +1,100 @@
-# Day 4 - Teach-the-Tutor: Active Recall Coach
 
-A voice-powered AI tutor built with LiveKit Agents and Murf AI TTS that helps you learn programming concepts through three interactive modes.
+---
 
-## 🎯 Features
+# 🎓 Day 4 – Teach-the-Tutor: Active Recall AI Coach
 
-### Three Learning Modes
+A voice-powered **AI tutoring agent** built with **LiveKit Agents**, **Murf AI Falcon TTS**, **Deepgram STT**, and **Google Gemini**, designed to help you learn programming concepts through **active recall** and **interactive teaching**.
 
-1. **Learn Mode** - The AI explains programming concepts with examples and analogies
-2. **Quiz Mode** - Test your knowledge with interactive questions
-3. **Teach Back Mode** - Explain concepts back to the AI and receive feedback
+This completes **Day 4** of the **#MurfAIVoiceAgentsChallenge**.
 
-### Programming Concepts Covered
+---
 
-- Variables
-- Loops (for and while)
-- Functions
-- Conditional Statements (if/else)
-- Arrays and Lists
+## 🎯 Key Features
 
-### Voice Integration
+### 🔹 Three Learning Modes
 
-- **Murf AI Falcon TTS** - High-quality, natural-sounding voices
-- **Deepgram STT** - Fast and accurate speech recognition
-- **Google Gemini 2.5 Flash** - Intelligent conversation handling
+* **Learn Mode**
+  The AI explains programming concepts using examples, analogies, and step-by-step breakdowns.
+
+* **Quiz Mode**
+  Test your understanding through interactive voice-based questions.
+
+* **Teach-Back Mode**
+  You explain a concept to the AI, and it gives structured feedback — perfect for active recall.
+
+### 🔹 Concepts Covered
+
+* Variables
+* Loops (for / while)
+* Functions
+* Conditional Statements (if/else)
+* Arrays & Lists
+
+### 🔹 Voice AI Stack
+
+* **Murf Falcon TTS** (en-US-Ryan, conversational style)
+* **Deepgram Nova-3 STT**
+* **Google Gemini 2.5 Flash** LLM
+* Real-time audio via **LiveKit**
+
+---
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### **Prerequisites**
 
-- Python 3.9+
-- Node.js 18+
-- LiveKit Server
-- API Keys:
-  - Murf AI API Key
-  - Deepgram API Key
-  - Google AI API Key
+* Python **3.9+**
+* Node.js **18+**
+* LiveKit Server
+* API Keys:
 
-### Installation
+  * Murf AI
+  * Deepgram
+  * Google AI
 
-1. **Clone the repository**
+---
+
+## 🔧 Installation
+
+### **1. Clone Repository**
+
 ```bash
 git clone https://github.com/GhanshyamJha05/fourth_day_task_murf_api.git
 cd fourth_day_task_murf_api
 ```
 
-2. **Setup Backend**
+---
+
+## 🖥️ Backend Setup
+
 ```bash
 cd backend
 python -m venv .venv
-.venv\Scripts\activate  # Windows
-# or
-source .venv/bin/activate  # Mac/Linux
+```
 
+Activate environment:
+
+**Windows**
+
+```bash
+.venv\Scripts\activate
+```
+
+**Mac/Linux**
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -e .
 ```
 
-3. **Configure Environment Variables**
+### **Create backend/.env.local**
 
-Create `backend/.env.local`:
-```env
+```
 LIVEKIT_URL=ws://127.0.0.1:7880
 LIVEKIT_API_KEY=devkey
 LIVEKIT_API_SECRET=secret
@@ -67,103 +103,120 @@ MURF_API_KEY=your_murf_api_key
 DEEPGRAM_API_KEY=your_deepgram_api_key
 ```
 
-4. **Setup Frontend**
+---
+
+## 🌐 Frontend Setup
+
 ```bash
 cd ../frontend
 npm install
 ```
 
-Create `frontend/.env.local`:
-```env
+### **Create frontend/.env.local**
+
+```
 NEXT_PUBLIC_LIVEKIT_URL=ws://127.0.0.1:7880
 LIVEKIT_API_KEY=devkey
 LIVEKIT_API_SECRET=secret
 ```
 
-### Running the Application
+---
 
-1. **Start LiveKit Server** (in project root)
+## ▶️ Running the App
+
+### 1️⃣ Start LiveKit Server
+
+From project root:
+
 ```bash
 ./livekit-server.exe --dev
 ```
 
-2. **Start Backend Agent** (in new terminal)
+### 2️⃣ Start Backend
+
 ```bash
 cd backend
 .venv\Scripts\activate
 python src/agent.py dev
 ```
 
-3. **Start Frontend** (in new terminal)
+### 3️⃣ Start Frontend
+
 ```bash
 cd frontend
 npm run dev
 ```
 
-4. **Open Browser**
-Navigate to `http://localhost:3000` (or the port shown in terminal)
+### 4️⃣ Open Browser
 
-## 💬 How to Use
+Go to:
+**[http://localhost:3000](http://localhost:3000)**
 
-1. **Connect** - Click the connect button and allow microphone access
-2. **Greet** - Say "Hello" to start the conversation
-3. **Choose Mode** - Say "I want to learn mode" or "quiz mode" or "teach back mode"
-4. **Learn** - Interact with the AI tutor based on your chosen mode
-5. **Switch Modes** - You can switch between modes anytime by asking
+---
 
-### Example Conversations
+## 🎤 How to Use (Voice Instructions)
 
-**Learn Mode:**
-- "Explain variables to me"
-- "Tell me about loops"
-- "What are functions?"
+1. **Connect** → Click *Connect* & allow microphone
+2. **Greet** → Say:
+   **“Hello!”**
+3. **Choose Mode**
 
-**Quiz Mode:**
-- "Quiz me on variables"
-- "Ask me about loops"
-- "Test my knowledge of conditionals"
+   * “Learn mode”
+   * “Quiz mode”
+   * “Teach back mode”
+4. **Interact** with the tutor
+5. **Switch modes anytime** by asking
 
-**Teach Back Mode:**
-- "I'll explain variables"
-- "Let me teach you about functions"
-- "I want to explain loops"
+---
 
-## 🏗️ Project Structure
+## 🧪 Example Conversations
+
+### **Learn Mode**
+
+* “Explain variables to me.”
+* “What are loops?”
+* “Teach me functions.”
+
+### **Quiz Mode**
+
+* “Quiz me on variables.”
+* “Ask me questions about loops.”
+
+### **Teach-Back Mode**
+
+* “Let me explain functions.”
+* “I want to teach loops.”
+
+---
+
+## 📂 Project Structure
 
 ```
 .
 ├── backend/
 │   ├── src/
-│   │   ├── agent.py          # Main agent logic with mode switching
-│   │   └── murf_tts.py       # Murf AI TTS integration
-│   ├── .env.local            # Backend environment variables
-│   └── pyproject.toml        # Python dependencies
+│   │   ├── agent.py              # Main agent logic
+│   │   └── murf_tts.py           # Murf TTS integration
+│   ├── .env.local
+│   └── pyproject.toml
+│
 ├── frontend/
-│   ├── app/                  # Next.js app directory
-│   ├── components/           # React components
-│   ├── .env.local           # Frontend environment variables
-│   └── package.json         # Node dependencies
+│   ├── app/                      # Next.js app
+│   ├── components/
+│   ├── .env.local
+│   └── package.json
+│
 ├── shared-data/
-│   └── day4_tutor_content.json  # Learning content
-└── livekit-server.exe       # LiveKit server binary
+│   └── day4_tutor_content.json   # Learning content
+│
+└── livekit-server.exe
 ```
 
-## 🔧 Technical Details
+---
 
-### Backend Stack
-- **LiveKit Agents SDK** - Voice agent framework
-- **Murf AI Falcon** - Text-to-speech (Ryan voice)
-- **Deepgram Nova-3** - Speech-to-text
-- **Google Gemini 2.5 Flash** - LLM for conversation
+## 📝 Tutor Content File
 
-### Frontend Stack
-- **Next.js 15** - React framework
-- **LiveKit Client SDK** - Real-time communication
-- **Tailwind CSS** - Styling
-
-## 📝 Content File
-
-The tutor content is stored in `shared-data/day4_tutor_content.json`:
+**shared-data/day4_tutor_content.json**
 
 ```json
 [
@@ -176,63 +229,68 @@ The tutor content is stored in `shared-data/day4_tutor_content.json`:
 ]
 ```
 
-## 🎤 Voice Configuration
+---
 
-The agent uses Murf AI Falcon voice:
-- **Voice ID**: `en-US-ryan`
-- **Style**: Conversational
-- **Sample Rate**: 24kHz
-- **Format**: WAV (Mono)
+## 🗣️ Voice Configuration (Murf Falcon)
 
-## 🐛 Troubleshooting
-
-### Agent Not Responding
-- Check all three services are running (LiveKit, Backend, Frontend)
-- Verify API keys in `.env.local` files
-- Check browser console for errors
-
-### No Audio
-- Ensure microphone permissions are granted
-- Check Murf API key is valid
-- Verify audio output device is working
-
-### Connection Issues
-- Confirm LiveKit server is running on port 7880
-- Check firewall settings
-- Verify `.env.local` URLs match
-
-## 📚 Resources
-
-- [LiveKit Agents Documentation](https://docs.livekit.io/agents/)
-- [Murf AI API Documentation](https://murf.ai/api/docs)
-- [Deepgram API Documentation](https://developers.deepgram.com/)
-- [Google AI Documentation](https://ai.google.dev/)
-
-## 🏆 Challenge Completion
-
-This project completes Day 4 of the Murf AI Voice Agent Challenge:
-- ✅ Three learning modes (Learn, Quiz, Teach Back)
-- ✅ Content-driven conversations
-- ✅ Mode switching functionality
-- ✅ Murf Falcon TTS integration
-- ✅ Interactive voice interface
-
-## 📄 License
-
-MIT License - See LICENSE file for details
-
-## 👤 Author
-
-**Ghanshyam Jha**
-- GitHub: [@GhanshyamJha05](https://github.com/GhanshyamJha05)
-- Challenge: #MurfAIVoiceAgentsChallenge #10DaysofAIVoiceAgents
-
-## 🙏 Acknowledgments
-
-- Murf AI for the Voice Agent Challenge
-- LiveKit for the amazing agents framework
-- The open-source community
+* **Voice**: en-US-Ryan
+* **Style**: Conversational
+* **Sample Rate**: 24 kHz
+* **Output**: WAV (Mono)
 
 ---
 
-Built with ❤️ for the Murf AI Voice Agent Challenge
+## 🐛 Troubleshooting
+
+### **Agent not responding**
+
+* Ensure all 3 services are running
+* Verify API keys
+* Check browser console for errors
+
+### **No audio**
+
+* Microphone permission
+* Valid Murf API key
+* Working speaker device
+
+### **Connection issues**
+
+* LiveKit running on port **7880**
+* Firewall not blocking WS
+* Correct .env URLs
+
+---
+
+## 🏆 Challenge Completion (Day 4)
+
+✅ Learn / Quiz / Teach-Back Modes
+✅ Mode Switching
+✅ Murf Falcon TTS
+✅ Deepgram STT
+✅ Gemini LLM
+✅ Real-time Voice Interface
+
+---
+| Day      | Status         |
+| -------- | -------------- |
+| Day 1    | ✅ Completed    |
+| Day 2    | ✅ Completed    |
+| Day 3    | ✅ Completed    |
+| Day 4    | ✅ Completed    |
+| Day 5–10 | 🔜 Coming soon |
+
+
+---
+
+## 🙏 Acknowledgments
+
+* **Murf AI** — for the challenge
+* **LiveKit** — for the agents framework
+* **Deepgram STT**
+* **Google AI**
+* Open-source community
+
+---
+
+
